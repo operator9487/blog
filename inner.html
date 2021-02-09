@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>  
 <html>  
 <head>  
@@ -9,6 +10,131 @@
 <html>  
 <head>  
 <style type="text/css">  
+body {
+   --color-text: #fff;
+   --color-bg: #000;
+   --color-link: #555;
+   --color-link-hover: #111cad;
+   --color-info: #f7cfb9;
+   --glitch-width: 100vw;
+   --glitch-height: 100vh;
+   --gap-horizontal: 10px;
+   --gap-vertical: 5px;
+   --time-anim: 4s;
+   --delay-anim: 2s;
+   --blend-mode-1: none;
+   --blend-mode-2: overlay;
+   --blend-mode-3: none;
+   --blend-mode-4: none;
+   --blend-mode-5: overlay;
+   --blend-color-1: transparent;
+   --blend-color-2: #7d948e;
+   --blend-color-3: transparent;
+   --blend-color-4: transparent;
+   --blend-color-5: #56b9e0;
+}
+.glitch 
+{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: var(--glitch-width);
+   height: var(--glitch-height);
+   overflow: hidden;
+}
+.glitchit {
+  
+   position: absolute;
+   top: calc(-1 * var(--gap-vertical));
+   left: calc(-1 * var(--gap-horizontal));
+   width: calc(100% + var(--gap-horizontal) * 
+2);
+   height: calc(100% + var(--gap-vertical) * 
+2);
+   background: url(mgcircle_w.png) no-repeat calc(50% + 3px) calc(50% + 5px);
+   background-color: var(--blend-color-1);
+   background-size: 969px;
+   transform: translate3d(0, 0, 0);
+   background-blend-mode: var(--blend-mode-1);
+   opacity:0.3;
+}
+.glitchit:nth-child(n+2) {
+   opacity: 0;
+}
+.imgloaded .glitchit:nth-child(n+2) {
+   animation-duration: var(--time-anim);
+   animation-delay: var(--delay-anim);
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+}
+.imgloaded .glitchit:nth-child(2) {
+   background-color: var(--blend-color-2);
+   background-blend-mode: var(--blend-mode-2);
+   animation-name: glitch-1;
+}
+.imgloaded .glitchit:nth-child(3) {
+   background-color: var(--blend-color-3);
+   background-blend-mode: var(--blend-mode-3);
+   animation-name: glitch-2;
+}
+.imgloaded .glitchit:nth-child(4) {
+   background-color: var(--blend-color-4);
+   background-blend-mode: var(--blend-mode-4);
+   animation-name: glitch-3;
+}
+.imgloaded .glitchit:nth-child(5) {
+   background-color: var(--blend-color-5);
+   background-blend-mode: var(--blend-mode-5);
+   animation-name: glitch-flash;
+}
+@keyframes glitch-1 {
+   0% {
+       opacity: 1;
+       transform: translate3d(var(--gap-
+horizontal), 0, 0);
+       clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+   } 2% {
+       clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+   }
+   4% {
+       clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+   } 6% {
+       clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+   } 8% {
+       clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+   } 10% {
+       clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+   }
+   12% {
+       clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+   } 14% {
+       clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+   }16% {
+       clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+   }18% {
+       clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+   }20% {
+       clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+   } 
+   21.9% {
+       opacity: 1;
+       transform: translate3d(var(--gap-horizontal), 0, 0);
+   } 
+   22%, 100% {
+       opacity: 0;
+       transform: translate3d(0, 0, 0);
+       clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+   }
+} 
+@keyframes glitch-flash {
+   0%, 5% {
+       opacity: 0.2;
+       transform: translate3d(var(--gap-
+horizontal), var(--gap-vertical), 0);
+   } 5.5%, 100% {
+       opacity: 0;
+       transform: translate3d(0, 0, 0);
+} } 
  ul{
         position: fixed;
         top: 50%;
@@ -21,27 +147,50 @@
         height: 600px;
         border: 10px ;
         padding: 0px;
+        z-index:10;
         }
 
     li{
         width: 33.3333333%;
         height: 33.333333%;
         float: left;
-        color: black;
+        color:#FFFFFF;
+        font-weight:bold;
         border: 2px;
         flex-wrap: nowrap;
         box-sizing: border-box;
         display: flex;
         align-items: center;
         justify-content: center;
+        
+    }
+    li a{
+      text-shadow:0px 0px 15px #56b9e0;
+      position:relative;
+      z-index:3;
     }
 	body{
 	font-family:'微軟正黑體';
-	background-image:url("https://i.imgur.com/lDyO30y.png");
-	background-color:#FFFFFF;
+	/*background-image:url("https://i.imgur.com/lDyO30y.png");*/
+	background-color:#000000;
 	background-repeat:no-repeat;
 	background-attachment:fixed;
 	background-position:center;
+}
+input{
+  border:none;
+  padding:10px;
+  border-radius: 20px;
+  box-shadow:0px 0px 15px #56b9e0;
+}
+input[type=submit]{
+  font-weight:bold;
+  padding:10px 30px;
+  background:#333333;
+  color:#FFF;
+}
+input[type=submit]:hover{
+  background:#000000;
 }
 </style>  
 </head>  
@@ -50,7 +199,7 @@
         <li>
 		<!--A1-->
           <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeghdbD3fehBb-pSf0D4TxE7zC819_lvdzg4ys9FHurW_ht6g/formResponse"  method="post">
-            <a>你的信箱：</a>
+            <a>認證信箱：</a>
             <input type="text" name="entry.1748352474"><br><br>
             <a>輸入：</a>
             <input type="text" name="entry.1925922354"><br><br>
@@ -60,7 +209,7 @@
       <li>
 	  <!--A2-->
         <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe67ZAnJJ6xlSOeDrmNuopZ-_SqUqu5UkeJ48oF1gfx-TI9LQ/formResponse"  method="post">
-          <a>你的信箱：</a>
+          <a>認證信箱：</a>
           <input type="text" name="entry.979730008"><br><br>
           <a>輸入：</a>
           <input type="text" name="entry.1281406318"><br><br>
@@ -70,7 +219,7 @@
       <li>
 	  <!--A3-->
         <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScLlaivFsyDaXZHc-gH2wCR3yymrLoIWbpkdpF2cc9SMe8Lgg/formResponse"  method="post">
-          <a>你的信箱：</a>
+          <a>認證信箱：</a>
           <input type="text" name="entry.451740752"><br><br>
           <a>輸入：</a>
           <input type="text" name="entry.2069101518"><br><br>
@@ -80,7 +229,7 @@
       <li>
 	  <!--B1-->
         <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdibq2hL_o3JwF4oyOAlrujpf1n6ohchRDv2Nf7c4UKISB0Aw/formResponse"  method="post">
-          <a>你的信箱：</a>
+          <a>認證信箱：</a>
           <input type="text" name="entry.1966525498"><br><br>
           <a>輸入：</a>
           <input type="text" name="entry.1472901541"><br><br>
@@ -91,7 +240,7 @@
       <li>
 	  <!--B3-->
         <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdiy47V0ivcSNqa9elWeOBq4hG9A1SfHigL3Ox7fw9W-MFdSw/formResponse"  method="post">
-          <a>你的信箱：</a>
+          <a>認證信箱：</a>
           <input type="text" name="entry.989931369"><br><br>
           <a>輸入：</a>
           <input type="text" name="entry.1095122822"><br><br>
@@ -101,7 +250,7 @@
       <li>
 	  <!--C1-->
         <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeDzqzJ27L_SZzyaWC7OQHs2jWPezJEdA9CmkY5P20CHOctdg/formResponse"  method="post">
-          <a>你的信箱：</a>
+          <a>認證信箱：</a>
           <input type="text" name="entry.1706102526"><br><br>
           <a>輸入：</a>
           <input type="text" name="entry.496756881"><br><br>
@@ -111,7 +260,7 @@
       <li>
 	  <!--C2-->
         <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfGXbW2ZFK8ANeK0Oa34ghkPxiegfWV5712MCPDYG1RwPbMfQ/formResponse"  method="post">
-          <a>你的信箱：</a>
+          <a>認證信箱：</a>
           <input type="text" name="entry.1706102526"><br><br>
           <a>輸入：</a>
           <input type="text" name="entry.496756881"><br><br>
@@ -121,7 +270,7 @@
       <li>
 	  <!--C3-->
         <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScxDXrJ97rEePe0j3mBQycx2OyBCQsOhRQqA9NJvHW-sE0JtA/formResponse"  method="post">
-          <a>你的信箱：</a>
+          <a>認證信箱：</a>
           <input type="text" name="entry.1807270830"><br><br>
           <a>輸入：</a>
           <input type="text" name="entry.1944882591"><br><br>
@@ -129,7 +278,12 @@
           </form> 
       </li>
     </ul>
-
+    <div class="glitch imgloaded">
+      <div class="glitchit"></div>
+      <div class="glitchit"></div>
+      <div class="glitchit"></div>
+      <div class="glitchit"></div>
+      <div class="glitchit"></div>
+    </div>
 </body>
 </html>
-  
