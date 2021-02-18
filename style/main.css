@@ -1,0 +1,105 @@
+/* A Modern CSS Reset */
+
+*,*::before,*::after{box-sizing:border-box}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}ul[role="list"],ol[role="list"]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}input,button,textarea,select{font:inherit}@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+
+body,html{
+  background:#000000;color:#FFFFFF;text-align:center;
+}
+
+
+#main{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#map{
+  margin-bottom:60px;
+  width:416px;
+  height:324px;
+  background:url(../assets/image/bg.png);
+  position:relative;
+}
+
+#mily{
+  width:64px;
+  height:80px;
+  background:url(../assets/image/mily.gif);
+  position:absolute;
+  top: 132px;
+  left: 220px;
+}
+
+.crystal{
+  width:32px;
+  height:56px;
+  position:absolute;
+}
+
+.crystal:before{
+  content:' ';
+  display:block;
+  width:32px;
+  height:56px;
+  position:absolute;
+  top:0;
+  left:0;
+  background:url(../assets/image/crystal.gif);
+  z-index:2;
+  animation: float 6s ease-in-out infinite;
+}
+.crystal:after{
+  content:' ';
+  display:block;
+  width:24px;
+  height:16px;
+  position:absolute;
+  bottom:-8px;
+  left:4px;
+  background:url(../assets/image/crystal_shadow.gif);
+  z-index:1;
+  animation: floatShadow 6s ease-in-out infinite;
+}
+
+.crystal.empty:before{
+  background:url(../assets/image/crystal_empty.gif);
+}
+
+.crystal.one{top:116px;left:116px}
+.crystal.two{top: 60px;left: 200px;}
+.crystal.three{left: 304px;top: 160px;}
+.crystal.four{top: 48px;left: 104px;}
+.crystal.five{top: 112px;left: 332px;}
+
+.crystal.one:before,.crystal.one:after{animation-delay: 0s;}
+.crystal.two:before,.crystal.two:after{animation-delay: -3s;}
+.crystal.three:before,.crystal.three:after{animation-delay: -1s;}
+.crystal.four:before,.crystal.four:after{animation-delay: -4s;}
+.crystal.five:before,.crystal.five:after{animation-delay: -2s;}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+@keyframes floatShadow {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
